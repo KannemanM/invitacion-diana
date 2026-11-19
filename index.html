@@ -4,43 +4,52 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Diana cumple 3 años · Invitación</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;1,500;1,600&family=Jost:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500;1,600&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{color-scheme:light;--gold:#b8924a;--ink:#3b2f4a;box-sizing:border-box}
+:root{color-scheme:light;--gold:#b8924a;--gold-ink:#8c5e1c;--ink:#3b2f4a}
 *{box-sizing:border-box;margin:0}
 html,body{background:#f7c6e6}
 body{font-family:'Jost',system-ui,sans-serif;color:var(--ink)}
-#track{height:750vh;position:relative}
-.stage{position:sticky;top:0;height:100vh;height:100dvh;overflow:hidden;background:linear-gradient(var(--t),var(--b))}
+#track{height:550vh;position:relative}
+.stage{position:sticky;top:0;height:100vh;height:100dvh;overflow:hidden;background:#f7c6e6}
 .stage>*{position:absolute}
-#rb{left:50%;bottom:-6vh;width:150vmax;max-width:none;transform:translateX(-50%);transform-origin:50% 100%}
+.skybox{inset:0}
+.sky{position:absolute;inset:0;opacity:0;will-change:opacity}
+#rb{left:50%;bottom:-6vh;width:150vmax;max-width:none;transform:translateX(-50%);transform-origin:50% 100%;will-change:transform,opacity}
 #rb path{fill:none;stroke-width:30;stroke-linecap:round;opacity:.85}
-.cloud{left:0;top:0;will-change:transform;filter:drop-shadow(0 18px 24px rgba(120,130,190,.18))}
+.cloud{left:0;top:0;will-change:transform}
+.cloud svg{display:block}
+.cloud::before{content:'';position:absolute;left:8%;right:8%;top:60%;bottom:-6%;border-radius:50%;background:radial-gradient(50% 50% at 50% 45%,rgba(110,120,185,.28),rgba(110,120,185,0) 68%);z-index:-1}
 .bird{left:0;top:0;width:64px;will-change:transform;opacity:0}
 .wing{transform-origin:50% 60%;animation:flap .32s ease-in-out infinite alternate}
 @keyframes flap{to{transform:scaleY(-.55) translateY(4px)}}
 .sp{width:6px;height:6px;border-radius:50%;background:#fff;box-shadow:0 0 12px 3px rgba(255,255,255,.9);animation:tw 2.6s ease-in-out infinite;will-change:transform}
 @keyframes tw{50%{opacity:.15;scale:.4}}
-.scene{inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;opacity:0;will-change:transform,opacity,filter;pointer-events:none}
-.eyebrow{font-weight:300;letter-spacing:.42em;text-transform:uppercase;font-size:clamp(11px,2.6vw,14px);color:var(--gold);margin-bottom:22px}
-h1,h2{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:500;line-height:1.02;text-shadow:0 2px 30px rgba(255,255,255,.7)}
+.scene{inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;opacity:0;will-change:transform,opacity;pointer-events:none;contain:paint}
+.eyebrow{font-weight:500;letter-spacing:.26em;text-transform:uppercase;font-size:clamp(12px,3.2vw,16px);color:var(--gold-ink);margin-bottom:22px;text-shadow:0 1px 14px rgba(255,255,255,.95),0 0 3px rgba(255,255,255,.85);text-wrap:balance}
+h1,h2{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-weight:500;line-height:1.02;text-shadow:0 2px 26px rgba(255,255,255,.8),0 1px 3px rgba(255,255,255,.5)}
 h1{font-size:clamp(40px,10vw,104px);max-width:14ch}
 h2{font-size:clamp(54px,14vw,150px)}
-.sub{margin-top:22px;font-weight:300;font-size:clamp(16px,3.6vw,22px);max-width:26ch;line-height:1.5}
+.sub{margin-top:22px;font-weight:400;font-size:clamp(17px,3.8vw,23px);max-width:26ch;line-height:1.5;color:#332a42;text-shadow:0 1px 16px rgba(255,255,255,.9),0 0 2px rgba(255,255,255,.7)}
 .w{display:inline-block;will-change:transform,opacity}
-.card{position:relative;width:min(92vw,440px);padding:38px 28px 32px;border-radius:30px;background:rgba(255,255,255,.58);backdrop-filter:blur(22px);-webkit-backdrop-filter:blur(22px);box-shadow:0 30px 80px rgba(90,70,150,.25),inset 0 0 0 1px rgba(255,255,255,.9),0 0 0 1px rgba(184,146,74,.45)}
+.card{position:relative;width:min(92vw,440px);padding:38px 28px 32px;border-radius:30px;background:rgba(255,255,255,.58);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);box-shadow:0 30px 80px rgba(90,70,150,.25),inset 0 0 0 1px rgba(255,255,255,.9),0 0 0 1px rgba(184,146,74,.45)}
 .card h2{font-size:clamp(64px,19vw,104px);color:#7a4fb5;background:linear-gradient(100deg,#e0629a,#8a5cd6 50%,#3aa0e6);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;text-shadow:none;padding-bottom:6px}
-.age{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:26px;margin:2px 0 20px}
+.age{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:27px;font-weight:600;margin:2px 0 20px;color:#6a4590}
 .line{height:1px;background:linear-gradient(90deg,transparent,var(--gold),transparent);margin:0 auto 20px;width:70%}
-.info{font-size:17px;line-height:1.7;font-weight:300}
-.info b{font-weight:400}
-.info a{color:var(--ink);text-decoration-color:var(--gold);text-underline-offset:4px}
-.btn{display:inline-block;margin-top:26px;padding:16px 34px;border-radius:99px;background:linear-gradient(110deg,#e0629a,#8a5cd6);color:#fff;text-decoration:none;font-weight:400;letter-spacing:.12em;text-transform:uppercase;font-size:13px;box-shadow:0 12px 30px rgba(138,92,214,.4);transition:transform .25s}
+.info{font-size:18px;line-height:1.65;font-weight:400}
+.info b{font-weight:500}
+.info a{color:#332a42;text-decoration-color:#a5762c;text-decoration-thickness:1.5px;text-underline-offset:4px}
+.btn{display:inline-block;margin-top:26px;padding:16px 34px;border-radius:99px;background:linear-gradient(110deg,#e0629a,#8a5cd6);color:#fff;text-decoration:none;font-weight:500;letter-spacing:.12em;text-transform:uppercase;font-size:13px;box-shadow:0 12px 30px rgba(138,92,214,.4);transition:transform .25s}
 .btn:hover{transform:translateY(-3px) scale(1.03)}
-#hint{inset:auto 0 calc(30px + env(safe-area-inset-bottom,0px)) 0;text-align:center;font-weight:300;letter-spacing:.35em;font-size:11px;text-transform:uppercase;color:var(--ink)}
+.card .eyebrow{font-size:clamp(11px,2.9vw,14px);letter-spacing:.2em;text-shadow:none}
+#hint{inset:auto 0 calc(30px + env(safe-area-inset-bottom,0px)) 0;text-align:center;font-weight:500;letter-spacing:.3em;font-size:12px;text-transform:uppercase;color:#2f2640;text-shadow:0 1px 10px rgba(255,255,255,.95),0 0 2px rgba(255,255,255,.8)}
 #hint i{display:block;width:1px;height:42px;margin:12px auto 0;background:linear-gradient(var(--gold),transparent);animation:dr 1.8s ease-in-out infinite;transform-origin:top}
 @keyframes dr{0%{scale:1 0}60%{scale:1 1}100%{scale:1 1;opacity:0}}
 #bar{top:0;left:0;height:3px;width:100%;background:linear-gradient(90deg,#ff7aa8,#ffc86b,#7be0a8,#6bb8ff,#b58cff);transform-origin:left;scale:0 1;z-index:5}
+@media (prefers-reduced-motion: reduce){
+  .wing,#hint i,.sp{animation:none}
+  .sp{opacity:.7}
+}
 </style>
 </head>
 <body>
@@ -48,22 +57,22 @@ h2{font-size:clamp(54px,14vw,150px)}
 <div class="stage" id="st">
   <div id="bar"></div>
   <svg id="rb" viewBox="0 0 1000 560" aria-hidden="true"></svg>
-  <div class="scene" data-a=".03" data-b=".27">
+  <div class="scene" data-a="-0.12" data-b=".33">
     <div class="eyebrow">Una invitación especial</div>
     <h1 data-split>Hay algo mágico en el aire…</h1>
   </div>
-  <div class="scene" data-a=".30" data-b=".56">
+  <div class="scene" data-a=".36" data-b=".65">
     <div class="eyebrow">Entre nubes y colores</div>
     <h1 data-split>Diana cumple 3 años</h1>
     <p class="sub" data-split>y quiere celebrarlo entre arcoíris, pájaros y sueños.</p>
   </div>
-  <div class="scene" data-a=".66" data-b="1" data-last>
+  <div class="scene" data-a=".68" data-b="1" data-last>
     <div class="card">
       <div class="eyebrow" style="margin-bottom:10px">Estás invitado al cumpleaños de</div>
       <h2>Diana</h2>
       <div class="age">cumple 3 añitos</div>
       <div class="line"></div>
-      <p class="info"><b>11 de diciembre</b><br>de 15 a 19 hs<br>
+      <p class="info"><b>Viernes 11 de diciembre</b><br>de 15 a 19 hs<br>
       <a href="https://www.google.com/maps/search/?api=1&query=Alma+Mia+Potrero+de+los+Funes" target="_blank" rel="noopener">Alma Mia, Potrero de los Funes</a></p>
       <a class="btn" id="rsvp" target="_blank" rel="noopener">Confirmar asistencia</a>
     </div>
@@ -73,42 +82,117 @@ h2{font-size:clamp(54px,14vw,150px)}
 </main>
 <script>
 const $=s=>document.querySelector(s),cl=(v,a=0,b=1)=>Math.min(b,Math.max(a,v)),st=$('#st'),NS='http://www.w3.org/2000/svg';
-const PHONE=''; // opcional: número con código de país, ej. 5493xxxxxxxxx
+const RM=!!(window.matchMedia&&matchMedia('(prefers-reduced-motion: reduce)').matches);
+// escribe solo si el valor cambió (evita recálculos de estilo innecesarios)
+const setS=(el,p,v)=>{const c=el._s||(el._s={});if(c[p]!==v){c[p]=v;el.style[p]=v}};
+const PHONE='5492665039810'; // número con código de país (Argentina: 54 9 + área + número)
 $('#rsvp').href='https://wa.me/'+PHONE+'?text='+encodeURIComponent('Confirmo asistencia al cumpleaños de Diana!');
+// cielo por capas (se cruzan con opacity, sin repintar degradados)
+const SKY=[['#f7c6e6','#fde6d2'],['#8ec8ff','#e4f4ff'],['#62aef0','#fff1cf'],['#b8a2f4','#ffd6ea']],SKP=[0,.28,.52,.66];
+const skybox=document.createElement('div');skybox.className='skybox';st.insertBefore(skybox,st.firstChild);
+const skyEls=SKY.map(([a,b])=>{const d=document.createElement('div');d.className='sky';d.style.background='linear-gradient('+a+','+b+')';skybox.appendChild(d);return d});
 // arcoíris
 const rb=$('#rb'),cols=['#ff8fa8','#ffb36b','#ffe07a','#8fe3a8','#78c8ff','#9d9bff','#d48cf0'],arcs=[];
-cols.forEach((c,i)=>{const r=470-i*34,p=document.createElementNS(NS,'path');p.setAttribute('d',`M${500-r} 560A${r} ${r} 0 0 1 ${500+r} 560`);p.setAttribute('pathLength',1);p.setAttribute('stroke',c);p.style.strokeDasharray=1;rb.appendChild(p);arcs.push(p)});
+cols.forEach((c,i)=>{const r=470-i*34,p=document.createElementNS(NS,'path');p.setAttribute('d',`M${500-r} 560A${r} ${r} 0 0 1 ${500+r} 560`);p.setAttribute('pathLength',1);p.setAttribute('stroke',c);p.style.strokeDasharray=1;p.style.strokeDashoffset=1;rb.appendChild(p);arcs.push(p)});
 // nubes
 const cs='<svg viewBox="0 0 220 110" width="100%"><g fill="#fff"><circle cx="60" cy="68" r="32"/><circle cx="100" cy="48" r="42"/><circle cx="148" cy="62" r="36"/><circle cx="32" cy="82" r="22"/><circle cx="190" cy="82" r="24"/><rect x="32" y="70" width="158" height="36" rx="18"/></g></svg>';
 const clouds=[[.1,.08,1.3,.5],[.6,.2,.9,.9],[.95,.05,1.6,.35],[.3,.42,1.1,1.2],[.8,.55,1.4,.7],[.05,.7,1.8,.55],[.5,.82,1.2,1.1],[1.1,.3,1,.8],[.7,.88,1.7,.45]].map(([x,y,s,v])=>{const d=document.createElement('div');d.className='cloud';d.style.width=220*s+'px';d.style.opacity=.55+s/6;d.innerHTML=cs;st.insertBefore(d,$('.scene'));return{d,x,y,v}});
 // pájaros
 const bird=c=>`<svg viewBox="0 0 64 44"><path class="wing" d="M30 24C24 6 10 2 4 6c8 2 12 10 16 22z" fill="${c[1]}"/><ellipse cx="34" cy="28" rx="18" ry="11" fill="${c[0]}"/><circle cx="50" cy="20" r="8" fill="${c[0]}"/><path d="M57 19l7 3-7 3z" fill="#ffb347"/><circle cx="52" cy="18" r="1.8" fill="#3b2f4a"/><path d="M17 30L2 38l4-12z" fill="${c[1]}"/></svg>`;
 const bp=[['#ff7aa8','#ffb0cc'],['#4fb3ff','#9bd5ff'],['#ffc23d','#ffe38f'],['#6fd6a0','#b4eecf'],['#a07cf5','#cbb6ff'],['#ff8a5c','#ffbf9f'],['#4fb3ff','#9bd5ff'],['#ff7aa8','#ffb0cc'],['#ffc23d','#ffe38f']];
-const birds=bp.map((c,i)=>{const d=document.createElement('div');d.className='bird';d.innerHTML=bird(c);d.querySelector('.wing').style.animationDelay=-i*.07+'s';st.insertBefore(d,$('.scene'));return{d,s:.02+i*.1,l:.2+(i%3)*.06,y:.12+((i*37)%60)/100,a:60+(i%4)*30,k:.8+(i%3)*.35}});
-// destellos
+const birds=bp.map((c,i)=>{const d=document.createElement('div');d.className='bird';d.innerHTML=bird(c);d.querySelector('.wing').style.animationDelay=-i*.07+'s';st.insertBefore(d,$('.scene'));return{d,s:.02+i*.1,l:.2+(i%3)*.06,y:.12+((i*37)%60)/100,a:60+(i%4)*30,k:.8+(i%3)*.35,v:false}});
+// destellos (se mantienen todos, también en móvil)
 const sps=Array.from({length:34},(_,i)=>{const d=document.createElement('div');d.className='sp';d.style.animationDelay=-Math.random()*3+'s';st.insertBefore(d,$('.scene'));return{d,x:Math.random(),y:Math.random(),v:.2+Math.random()*1.2}});
 // palabras
 document.querySelectorAll('[data-split]').forEach(e=>{e.innerHTML=e.textContent.split(' ').map(w=>`<span class="w">${w}</span>`).join(' ')});
 const scenes=[...document.querySelectorAll('.scene')];
-// cielo
-const K=[[0,'#f7c6e6','#fde6d2'],[.35,'#8ec8ff','#e4f4ff'],[.7,'#62aef0','#fff1cf'],[1,'#b8a2f4','#ffd6ea']],hx=h=>[1,3,5].map(i=>parseInt(h.substr(i,2),16));
-function sky(p){let i=0;while(i<K.length-2&&p>K[i+1][0])i++;const a=K[i],b=K[i+1],t=cl((p-a[0])/(b[0]-a[0])),m=(x,y)=>{const c=hx(x),d=hx(y);return 'rgb('+c.map((v,k)=>Math.round(v+(d[k]-v)*t)).join()+')'};return[m(a[1],b[1]),m(a[2],b[2])]}
-let cur=0,W=innerWidth,H=innerHeight;addEventListener('resize',()=>{W=innerWidth;H=innerHeight});
-function frame(){
-  const max=document.documentElement.scrollHeight-H,tg=max>0?cl(scrollY/max):0;cur+=(tg-cur)*.075;const p=cur;
-  const [t,b]=sky(p);st.style.setProperty('--t',t);st.style.setProperty('--b',b);
-  $('#bar').style.scale=p+' 1';$('#hint').style.opacity=cl(1-p*40);
-  arcs.forEach((a,i)=>{a.style.strokeDashoffset=1-cl((p-.04-i*.012)/.22)});
-  rb.style.transform=`translateX(-50%) scale(${.75+p*.55}) translateY(${(1-cl(p*3))*14}vh)`;
-  rb.style.opacity=p>.64?1-(p-.64)*1.1:1;
-  clouds.forEach(c=>{c.d.style.transform=`translate3d(${(c.x-p*c.v*1.3)*W-120}px,${(c.y-p*.12*c.v)*H}px,0)`});
-  sps.forEach(s=>{s.d.style.transform=`translate3d(${s.x*W}px,${(((s.y-p*s.v*.6)%1+1)%1)*H}px,0)`});
-  birds.forEach(o=>{const t=(p-o.s)/o.l,v=t>0&&t<1;o.d.style.opacity=v?1:0;if(v){const x=-90+t*(W+180),y=o.y*H+Math.sin(t*6.283*o.k)*o.a-t*H*.1;o.d.style.transform=`translate3d(${x}px,${y}px,0) rotate(${Math.cos(t*6.283*o.k)*-10}deg) scale(${.8+o.y})`}});
-  scenes.forEach(s=>{const a=+s.dataset.a,e=+s.dataset.b,t=(p-a)/(e-a),i=cl(t/.28),out=s.hasAttribute('data-last')?1:cl((1-t)/.2),o=Math.min(i,out);
-    s.style.opacity=o;s.style.transform=`translateY(${(1-i)*50-(1-out)*60}px) scale(${.94+.06*o})`;s.style.filter=o<1?`blur(${(1-o)*10}px)`:'none';s.style.pointerEvents=o>.8?'auto':'none';
-    const ws=s.querySelectorAll('.w'),n=ws.length;ws.forEach((w,k)=>{const q=cl(i*(n+2)-k*1.1);w.style.opacity=q;w.style.transform=`translateY(${(1-q)*30}px)`})});
-  requestAnimationFrame(frame)}
-frame();
+scenes.forEach(s=>{s._ws=[...s.querySelectorAll('.w')]});
+const RAMP=.06; // ancho del fundido de cada escena (en progreso de scroll)
+// medida (nunca dentro del frame)
+const track=$('#track');
+let W=innerWidth,H=innerHeight,max=1;
+function measure(){
+  W=innerWidth;
+  const h=innerHeight,m=track.offsetHeight-h;
+  if(m>0&&Math.abs(m-max)>max*.05){max=m;H=h}
+}
+measure();
+let rt=0;
+addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(measure,150)},{passive:true});
+addEventListener('orientationchange',()=>setTimeout(measure,300),{passive:true});
+// loop
+const bar=$('#bar'),hint=$('#hint');
+let prev=0,cur=0,sc=-1,ty=-1,arcDone=false;
+function frame(now){
+  const dt=prev?Math.min(64,now-prev):16.7;prev=now;
+  const tg=cl(scrollY/max);
+  const k=RM?1:1-Math.exp(-dt/90);
+  cur+=(tg-cur)*k;
+  if(Math.abs(tg-cur)<4e-5)cur=tg;
+  const p=Math.round(cur*1000)/1000;
+  // cielo
+  let si=0;while(si<SKP.length-2&&p>SKP[si+1])si++;
+  const sq=Math.round(cl((p-SKP[si])/(SKP[si+1]-SKP[si]))*200)/200;
+  for(let i=0;i<skyEls.length;i++){
+    const o=i<si?1:i===si?1:i===si+1?sq:0;
+    setS(skyEls[i],'opacity',o);
+  }
+  // barra y pista
+  setS(bar,'scale',p.toFixed(3)+' 1');
+  setS(hint,'opacity',cl(1-p*18).toFixed(2));
+  // arcoíris
+  if(!arcDone){
+    let all=true;
+    for(let i=0;i<arcs.length;i++){
+      const off=1-cl((p-.04-i*.012)/.22);
+      if(arcs[i]._o!==off){arcs[i].style.strokeDashoffset=off;arcs[i]._o=off}
+      if(off>0)all=false;
+    }
+    arcDone=all;
+  }
+  const ns=Math.round((.75+p*.55)*40)/40, ny=Math.round((1-cl(p*3))*28)/2;
+  if(ns!==sc||ny!==ty){sc=ns;ty=ny;rb.style.transform=`translateX(-50%) scale(${sc}) translateY(${ty}vh)`}
+  setS(rb,'opacity',Math.round((p>.64?1-(p-.64)*1.1:1)*100)/100);
+  // nubes
+  for(let i=0;i<clouds.length;i++){
+    const c=clouds[i];
+    c.d.style.transform=`translate3d(${Math.round((c.x-p*c.v*1.3)*W-120)}px,${Math.round((c.y-p*.12*c.v)*H)}px,0)`;
+  }
+  // destellos
+  for(let i=0;i<sps.length;i++){
+    const s=sps[i];
+    s.d.style.transform=`translate3d(${Math.round(s.x*W)}px,${Math.round((((s.y-p*s.v*.6)%1+1)%1)*H)}px,0)`;
+  }
+  // pájaros
+  for(let i=0;i<birds.length;i++){
+    const o=birds[i],t=(p-o.s)/o.l,vis=t>0&&t<1;
+    if(vis){
+      if(!o.v){setS(o.d,'opacity',1);o.v=true}
+      const x=Math.round(-90+t*(W+180)),y=Math.round(o.y*H+Math.sin(t*6.283*o.k)*o.a-t*H*.1);
+      o.d.style.transform=`translate3d(${x}px,${y}px,0) rotate(${(Math.cos(t*6.283*o.k)*-10).toFixed(1)}deg) scale(${(.8+o.y).toFixed(2)})`;
+    }else if(o.v){setS(o.d,'opacity',0);o.v=false}
+  }
+  // escenas (sin blur, solo opacity + transform)
+  for(let i=0;i<scenes.length;i++){
+    const s=scenes[i],a=+s.dataset.a,b=+s.dataset.b,last=s.hasAttribute('data-last');
+    const fi=cl((p-a)/RAMP),fo=last?1:cl((b-p)/RAMP),o=Math.min(fi,fo);
+    const oq=Math.round(o*100)/100;
+    setS(s,'opacity',oq);
+    setS(s,'transform',`translateY(${Math.round(((1-fi)*50-(1-fo)*60)*2)/2}px) scale(${(.94+.06*o).toFixed(3)})`);
+    setS(s,'pointerEvents',oq>.8?'auto':'none');
+    if(oq>0){
+      const ws=s._ws,n=ws.length;
+      const wi=cl((p-a)/.12);
+      for(let j=0;j<n;j++){
+        const q=Math.round(cl(wi*(n+2)-j*1.1)*100)/100;
+        const w=ws[j];
+        if(w._q!==q){w._q=q;w.style.opacity=q;w.style.transform=`translateY(${((1-q)*30).toFixed(1)}px)`}
+      }
+    }
+  }
+  requestAnimationFrame(frame);
+}
+requestAnimationFrame(frame);
 </script>
 </body>
 </html>
